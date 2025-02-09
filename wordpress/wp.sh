@@ -1,12 +1,14 @@
 #!/bin/bash
 
-cd /usr
+#change the line in the config to all inerfaces  (for ngnix)
 
-wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www
+
+cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 
 chown -R root:root /var/www/wordpress
 
-#change the line in the config to all inerfaces  (for ngnix)
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 chmod +x wp-cli.phar
 
