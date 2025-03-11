@@ -22,7 +22,7 @@ wp config set DB_PASSWORD ${DB_PASSWORD} --allow-root
 wp config set DB_HOST ${host} --allow-root
 wp config set DB_PREFIX ${prefix} --allow-root
 
-wp core install --url=${url} --title=${title} --admin_user=${admin_user} --admin_password=${ADMIN_PASSWORD} --admin_email=${email} --allow-root
+wp core install --url=https://ybellakr.42.fr --title=${title} --admin_user=${admin_user} --admin_password=${ADMIN_PASSWORD} --admin_email=${email} --allow-root
 
 mkdir -p /run/php
 chown -R www-data:www-data /var/www/wordpress

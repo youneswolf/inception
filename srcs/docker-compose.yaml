@@ -1,6 +1,6 @@
 services: 
   mariadb:
-    build: /Users/ybellakr/Desktop/inception/srcs/requirements/mariadb
+    build: /home/ybellakr/inception/srcs/requirements/mariadb
     image: mariadb:ybellakr
     secrets:
       - db_password
@@ -10,8 +10,8 @@ services:
     container_name: mariadb
     networks:
       - inception
-    # volumes:
-    #   - mariadb:/var/lib/mysql
+    volumes:
+      - mariadb:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -21,7 +21,7 @@ services:
     restart: always
   
   wordpress:
-    build: /Users/ybellakr/Desktop/inception/srcs/requirements/wordpress
+    build: /home/ybellakr/inception/srcs/requirements/wordpress
     image: wordpress:ybellakr
     secrets:
       - credentials
@@ -29,7 +29,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress:/var/www/mariadb
+      - wordpress:/var/www/wordpress
     container_name: wordpress
     depends_on:
       mariadb:
@@ -39,7 +39,7 @@ services:
     restart: always
 
   nginx:
-    build: /Users/ybellakr/Desktop/inception/srcs/requirements/nginx
+    build: /home/ybellakr/inception/srcs/requirements/nginx
     image: nginx:ybellakr
     container_name: nginx
     networks:
@@ -48,13 +48,12 @@ services:
       - wordpress:/var/www/wordpress
     depends_on:
       - wordpress
-        # condition: service_healthy
     restart: always
     ports:
       - 443:443
 
   static:
-    build: /Users/ybellakr/Desktop/inception/srcs/requirements/bonus/static_website
+    build: /home/ybellakr/inception/srcs/requirements/bonus/static_website
     image: static:ybellakr
     container_name: static
     networks:
@@ -63,7 +62,7 @@ services:
       - 4444:4444
 
   adminer:
-    build: /Users/ybellakr/Desktop/inception/srcs/requirements/bonus/adminer
+    build: /home/ybellakr/inception/srcs/requirements/bonus/adminer
     image: adminer:ybellakr
     container_name: adminer
     networks:
@@ -82,14 +81,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/ybellakr/Desktop/inception/srcs/wp #to change 
+      device: /home/ybellakr/data/wordpress 
   mariadb:
     name: "mariadb"
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/ybellakr/Desktop/inception/srcs/mr #to change 
+      device: /home/ybellakr/data/mariadb
 
 secrets:
   db_password:
