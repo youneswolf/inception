@@ -2,7 +2,7 @@
 
 DB_PASSWORD=$(cat /run/secrets/db_password)
 ADMIN_PASSWORD=$(cat /run/secrets/credentials)
-user2=$(cat /run/secrets/user_password.txt)
+user2=$(cat /run/secrets/pass_user2)
 
 
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar >/dev/null 2>&1
