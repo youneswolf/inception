@@ -26,6 +26,7 @@ services:
     secrets:
       - credentials
       - db_password
+      - pass_user2
     env_file:
       - .env
     volumes:
@@ -97,3 +98,5 @@ secrets:
     file: ../secrets/db_root_password.txt
   credentials:
     file: ../secrets/credentials.txt
+  pass_user2:
+    file: ../secrets/user_password.txt
