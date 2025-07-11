@@ -92,13 +92,13 @@ MYSQL_USER=XXXXXXXXXXXX
 $>
 ```
 ### Bonus Part
-- **The bonus part is simple and allows you to add extra functionality to your infrastructure:
+- **The bonus part** is simple and allows you to add extra functionality to your infrastructure:
 
-- **Static Website: Create a simple static website (excluding PHP). For example, you can create a resume or showcase site using HTML, CSS, and JavaScript.
+- **Static Website**: Create a simple static website (excluding PHP). For example, you can create a resume or showcase site using HTML, CSS, and JavaScript.
 
-- **Adminer: Set up Adminer in a Docker container to interact with your MariaDB database via a web interface.
+- **Adminer**: Set up Adminer in a Docker container to interact with your MariaDB database via a web interface.
 
-- **Each of these services should have its own Dockerfile and container, ensuring they run independently and interact properly with your existing setup.
+- Each of these services should have its own Dockerfile and container, ensuring they run independently and interact properly with your existing setup.
 
-###Security Considerations
-- **For security reasons, all credentials, API keys, and passwords must be stored locally in separate files and ignored by version control. Credentials should be stored using Docker secrets where applicable.
+### Security Considerations
+- **For security reasons**, all credentials, API keys, and passwords must be stored locally in separate files and ignored by version control. Credentials should be stored using Docker secrets where applicable.
